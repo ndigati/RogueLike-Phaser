@@ -21,6 +21,7 @@ function create() {
 
     game.add.sprite(0, 0, 'sky');
     playerIcon = game.add.sprite(0, 0, 'playerIcon');
+    player = new Player("Player1");
 
     game.physics.arcade.enable(playerIcon);
 

@@ -1,4 +1,4 @@
-function Player(game, name, icon, x, y) {
+function Player(name) {
     this.name = name;
     this.icon = icon;
     this.x = x;
@@ -23,5 +23,12 @@ function Player(game, name, icon, x, y) {
         } else {
             return "This weapon is worse than your current weapon!";
         }
+    }
+
+    this.isDead = function() {
+        if (this.health <= 0) {
+            return true;
+        }
+        return false;
     }
 }

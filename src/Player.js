@@ -5,8 +5,6 @@ function Player(name) {
     this.weapon = "";
     this.damage = 1;
 
-    game.add.sprite(x, y, icon);
-
     this.loseHealth = function (lostHealth) {
         this.health -= lostHealth;
         return this.health;

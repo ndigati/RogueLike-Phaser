@@ -1,8 +1,5 @@
 function Player(name) {
     this.name = name;
-    this.icon = icon;
-    this.x = x;
-    this.y = y;
 
     this.health = 100;
     this.weapon = "";

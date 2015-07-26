@@ -7,12 +7,15 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
 function preload() {
     game.load.image('sky', 'assets/sky.png');
     game.load.image('playerIcon', 'assets/diamond.png');
+    game.load.image('enemyIcon', 'assets/star.png');
 }
 
 // Player's icon that moves on the screen
 var playerIcon;
+var enemyIcon;
 // Player object that keeps track of the player's health, weapon, etc.
 var player;
+var enemy;
 
 var cursors;
 var wasd;
@@ -21,7 +24,9 @@ function create() {
 
     game.add.sprite(0, 0, 'sky');
     playerIcon = game.add.sprite(0, 0, 'playerIcon');
+    enemyIcon = game.add.sprite(0, 0, 'enemyIcon');
     player = new Player("Player1");
+    enemy = new Enemy("Enemy1");
 
     game.physics.arcade.enable(playerIcon);
 

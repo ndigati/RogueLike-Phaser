@@ -23,12 +23,13 @@ function create() {
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     game.add.sprite(0, 0, 'sky');
-    playerIcon = game.add.sprite(0, 0, 'playerIcon');
-    enemyIcon = game.add.sprite(0, 0, 'enemyIcon');
+    playerIcon = game.add.sprite(400, 300, 'playerIcon');
+    enemyIcon = game.add.sprite(100, 200, 'enemyIcon');
     player = new Player("Player1");
     enemy = new Enemy("Enemy1");
 
     game.physics.arcade.enable(playerIcon);
+    game.physics.arcade.enable(enemyIcon);
 
     cursors = game.input.keyboard.createCursorKeys();
     wasd = {
@@ -53,5 +54,15 @@ function update() {
         playerIcon.body.velocity.y = -300;
     } else {
         playerIcon.animations.stop();
+    } 
+
+    if (playerIcon.inWorld == false) {
+        restartGame();
     }
+
+    game.physics.arcade.overlap(playerIcon, enemyIcon, restartGame, null, this);
+}
+
+function restartGame() {
+    create();
 }
